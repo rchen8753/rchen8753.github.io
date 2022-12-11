@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        main{
+            display: block;
+        }
+        .wrap{
+            width: 960px;
+            margin: auto;
+            display: flex;
+            padding: 100px 0;
+            flex-direction: column;
+            position: relative;
+        }
+        .wrap .advantage{
+            width: 350px;
+            position: absolute;  
+            z-index: 2;      
+            text-align: center;
+        }
+        .wrap:nth-child(even) .advantage{
+            right: 0;
+        }
+        .wrap .advantage .title h1{
+            background-color: rgb(196, 20, 20);
+            color: white;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 50px;
+        }
+        .wrap .advantage .title p{
+            transform: rotate(90deg);
+            font-size: 106px;
+        }
+        .wrap .advantage .text{
+            background-color: black;
+            color: white;
+            text-align: left;
+        }
+        .wrap .advantage .text h2{
+            font-size: 28px;
+            padding: 10px;
+        }
+        .wrap .advantage .text p{
+            font-size: 20px;
+            line-height: 2;
+            padding: 10px;
+        }
+        .wrap .box{
+            width: 440px;
+            height: 250px;
+            background-color: #eee;
+            top: 150px;
+            right: 0px;
+            position: absolute;
+            }
+        .wrap:nth-child(even) .box{
+            right: 200px;
+            height: 400px;
+        }
+        .wrap .main-pic{
+            width: 680px;
+            position: relative;
+            display: flex;
+            left: 200px;
+            top: 122px;
+            z-index: 1;
+        }
+        .wrap:nth-child(even) .main-pic{
+            left: 0;
+        }
+        .wrap .main-pic img{
+            vertical-align: middle;
+            width: 100%;
+        }
+        .wrap .main-pic .youtube{
+            position: absolute;
+            top: 50%;
+            right: -2%;
+        }
+        .wrap:nth-child(even) .main-pic .youtube{
+            left: -2%;
+        }
+        .wrap .main-pic .youtube img{
+            width: 40px;
+            height: 30px;
+            vertical-align: middle;
+        }
+        .wrap .revolution{
+            width: 640px;
+            background-color: #eee;
+            position: relative;
+            left: 20px;
+            top: 95px;
+            z-index: 2;
+        }
+        .wrap:nth-child(even) .revolution{
+            position: relative;
+            left: 320px;
+        }
+        .wrap .revolution .main-title{
+            color: rgb(196, 20, 20);
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+        .wrap .revolution .main-title h4{
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .wrap .revolution .main-title .line{
+            background-color: rgb(196, 20, 20);
+            height: 1px;
+            width: 420px;
+        }
+        .wrap .revolution .revolution-item{
+            margin: 0 15px;
+            margin-bottom: 20px;
+        }
+        .wrap .revolution .item .title{
+            width: 130px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            margin: 5px;
+            padding: 0px;
+        }
+        .wrap .revolution .item .text{
+            color: rgb(70, 69, 69);
+            display: flex;
+            font-weight: 700;
+        }
+        .wrap .revolution .item .text .point{
+            color:rgb(196, 20, 20) ;
+            margin-top: 2px;
+            margin-right: 2px;
+        }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="wrap">
+        <div class="advantage">
+          <div class="title">
+            <h1>
+              <p>01</p>
+              操控樂趣
+            </h1>
+          </div>
+          <div class="text">
+            <h2>人人滿意的駕駛體驗</h2>
+            <p>透握最佳重量分配,實現平順起步 ` 直線穩定加速,過彎同時保持車身平穩,帶給駕駛更零敏的道路反饋,享受隨心馳騁的行駛快感.
+            </p>
+          </div>
+        </div>
+        <div class="box"></div>
+        <div class="main-pic">
+          <img src="./TOYOTA圖片/toyota1.png">
+          <div class="youtube">
+            <img src="./TOYOTA圖片/yt.jpg">
+          </div>
+        </div>
+        <div class="revolution">
+          <div class="main-title">
+            <h3>因為我們做了這些革新</h3>
+            <div class="line"></div>
+          </div>
+          <div class="revolution-item">
+            <div class="item">
+              <div class="title">
+                <h4>
+                  低重心設計
+                </h4>
+              </div>
+              <div class="text">
+                <div class="point">•</div>
+                <p>透過低重心設計，不僅呈現更低伏的外觀，更能減少車身側保持高速行駛穩定性。</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="title">
+                <h4>
+                  車體剛性強化
+                </h4>
+              </div>
+              <div class="text">
+                <div class="point">•</div>
+                <p>車身結構採用超高度鋼材，提高車輛穩定性，同時藉由雷射強化焊接技術，大幅增加焊點數量，提升車身抗扭剛性，強化駕馭穩定性及安全性。</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="title">
+                <h4>
+                  四輪獨立懸吊
+                </h4>
+              </div>
+              <div class="text">
+                <div class="point">•</div>
+                <p>搭載全新四輪獨立懸吊設定，透過懸吊的高承載強度，保持輪胎抓地力，同時兼顧轉向靈敏度與清晰路感回饋，提升駕馭樂趣。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="wrap">
+        <div class="advantage">
+          <div class="title">
+            <h1>
+              <p>02</p>
+              安全守護
+            </h1>
+          </div>
+          <div class="text">
+            <h2>行車更安心的高剛性車體</h2>
+            <p>您的愛車會妥善保護您，強悍穩固的車身可使您安全無虞，世界級的安全科技讓你輕鬆自如享受旅程、毫無後顧之憂。
+            </p>
+          </div>
+        </div>
+        <div class="box"></div>
+        <div class="main-pic">
+          <img src="./TOYOTA圖片/toyota2.png">
+          <div class="youtube">
+            <img src="./TOYOTA圖片/yt.jpg">
+          </div>
+        </div>
+        <div class="revolution">
+          <div class="main-title">
+            <h3>因為我們做了這些革新</h3>
+            <div class="line"></div>
+          </div>
+          <div class="revolution-item">
+            <div class="item">
+              <div class="title">
+                <h4>
+                  低重心設計
+                </h4>
+              </div>
+              <div class="text">
+                <div class="point">•</div>
+                <p>以先進的TSS系統,主動偵測路況,輔助駕駛判斷路況維持行車安全。</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="title">
+                <h4>
+                  被動安全
+                </h4>
+              </div>
+              <div class="text">
+                <div class="point">•</div>
+                <p>堅固的高剛性車體，使用熱沖壓材料的高強度抗扭鋼板，強化座艙對意外事故的保護力。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="wrap">
+        <div class="advantage">
+          <div class="title">
+            <h1>
+              <p>03</p>
+              乘坐舒適
+            </h1>
+          </div>
+          <div class="text">
+            <h2>令人放鬆的車室空間</h2>
+            <p>車室空間設計著重人體工學，透過方向盤、踏板等位置優化，追求更舒適的駕駛位置，並以新型座椅設計，提高座椅包覆性，致力實現長途駕駛不疲勞的舒適駕馭體驗。
+            </p>
+          </div>
+        </div>
+        <div class="box"></div>
+        <div class="main-pic">
+          <img src="./TOYOTA圖片/toyota3.png">
+          <div class="youtube">
+            <img src="./TOYOTA圖片/yt.jpg">
+          </div>
+        </div>
+        <div class="revolution">
+          <div class="main-title">
+            <h3>因為我們做了這些革新</h3>
+            <div class="line"></div>
+          </div>
+          <div class="revolution-item">
+            <div class="item">
+              <div class="title">
+                <h4>
+                  駕駛位置最佳化
+                </h4>
+              </div>
+              <div class="text">
+                <div class="point">•</div>
+                <p>針對駕駛位置進行徹底的修改，讓駕馭者可如同握手般自然且舒適地操控方向盤。</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="title">
+                <h4>
+                  駕馭視野佳
+                </h4>
+              </div>
+              <div class="text">
+                <div class="point">•</div>
+                <p>考量駕駛坐進車內的高度，透過前擋風玻璃位置的調整，達到盲區極小化，使駕駛視野更開闊，同步提升駕馭安全。</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="title">
+                <h4>
+                  更寧靜的車室
+                </h4>
+              </div>
+              <div class="text">
+                <div class="point">•</div>
+                <p>採用最新三層結構的隔音材料，與引擎、變速箱的零件改革，將座艙的震動抑制在最小限度，提供乘客舒適安靜的享受。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="wrap">
+        <div class="advantage">
+          <div class="title">
+            <h1>
+              <p>04</p>
+              以人為本
+            </h1>
+          </div>
+          <div class="text">
+            <h2>使用者導向的貼心設計</h2>
+            <p>藉由高度人性化的介面組合、傳遞車輛資訊，豐富日常駕駛體驗。從提升油耗表現到行李廂空間最適化，均細心考量，更加貼近使用者真正所需與習慣，並給予及時回應。
+            </p>
+          </div>
+        </div>
+        <div class="box"></div>
+        <div class="main-pic">
+          <img src="./TOYOTA圖片/toyota4.png">
+          <div class="youtube">
+            <img src="./TOYOTA圖片/yt.jpg">
+          </div>
+        </div>
+        <div class="revolution">
+          <div class="main-title">
+            <h3>因為我們做了這些革新</h3>
+            <div class="line"></div>
+          </div>
+          <div class="revolution-item">
+            <div class="item">
+              <div class="title">
+                <h4>
+                  優異油耗表現
+                </h4>
+              </div>
+              <div class="text">
+                <div class="point">•</div>
+                <p>以AURIS為例,更強勁的高效引擎將熱效率提升至40%，達到世界級水準，屢屢突破燃油效率新境界。</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="title">
+                <h4>
+                  行李箱空間最適化
+                </h4>
+              </div>
+              <div class="text">
+                <div class="point">•</div>
+                <p>以PRIUS為例,透過將電池位置移到後座下方,讓行李箱擁有更大的空間。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="wrap">
+        <div class="advantage">
+          <div class="title">
+            <h1>
+              <p>05</p>
+              引以為傲
+            </h1>
+          </div>
+          <div class="text">
+            <h2>極具吸引力的精心設計</h2>
+            <p>TNGA車款擁有讓人忍不住回頭的新潮外觀、讓駕駛充滿自信的駕馭快感！不僅讓車主能展現個人風格，也能讓擁有者都能引以為傲。
+            </p>
+          </div>
+        </div>
+        <div class="box"></div>
+        <div class="main-pic">
+          <img src="./TOYOTA圖片/toyota5.png">
+          <div class="youtube">
+            <img src="./TOYOTA圖片/yt.jpg">
+          </div>
+        </div>
+        <div class="revolution">
+          <div class="main-title">
+            <h3>因為我們做了這些革新</h3>
+            <div class="line"></div>
+          </div>
+          <div class="revolution-item">
+            <div class="item">
+              <div class="title">
+                <h4>
+                  設計概念
+                </h4>
+              </div>
+              <div class="text">
+                <div class="point">•</div>
+                <p>TINGA低重心設計,不僅呈現更低伏的運動化外觀,更講究高品質內裝一致性。</p>
+              </div>
+            </div>
+            <div class="item">
+              <div class="title">
+                <h4>
+                  環保概念
+                </h4>
+              </div>
+              <div class="text">
+                <div class="point">•</div>
+                <p>為了對環境保護盡一份心力，我們全面提升傳統引擎、變速箱與油電複合動力的動力效能。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
