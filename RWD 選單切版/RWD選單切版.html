@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./reset.css" />
+    <title>Document</title>
+    <style>
+      .logo img {
+        width: 100px;
+        height: 50px;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin: 0 15px;
+        background-color: black;
+        padding: 10px 0;
+      }
+
+      a {
+        display: block;
+        text-decoration: none;
+        color: #fff;
+      }
+
+      .main-menu {
+        width: 100%;
+        position: relative;
+      }
+
+      .main-header {
+        line-height: 60px;
+        align-items: center;
+      }
+
+      .main-menu {
+        display: flex;
+      }
+
+      .main-menu li {
+        position: relative;
+        transition: 0.5s;
+        list-style: none;
+      }
+
+      .main-menu li a {
+        padding: 0 15px;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .main-menu li::after {
+        content: "";
+        position: absolute;
+        height: 4px;
+        left: 50%;
+        right: 50%;
+        bottom: 0;
+        background-color: #fff;
+        transition: 0.5s;
+      }
+
+      .main-menu li:hover {
+        background-color: #fff;
+      }
+
+      .main-menu li:hover a {
+        color: black;
+      }
+
+      .main-menu li:hover::after {
+        left: 0;
+        right: 0;
+      }
+
+      .sub-menu li:hover a {
+        text-decoration: underline;
+      }
+
+      .sub-menu {
+        position: absolute;
+        left: 100%;
+        top: 75px;
+        background-color: rgb(137, 135, 135);
+        width: 200px;
+        text-align: center;
+        transform: translate(-50%, -150%);
+        transition: 1s;
+        z-index: -1;
+      }
+
+      .main-menu li:hover .sub-menu {
+        transform: translate(-50%, 0);
+      }
+
+      #menu-control {
+        display: none;
+      }
+
+      @media screen and (width < 768px) {
+        #menu-control {
+          display: none;
+        }
+        .main-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+          background-color: black;
+        }
+        .logo {
+          margin: auto;
+          width: 100px;
+          height: 75px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+        }
+        .logo img {
+          width: 100%;
+          vertical-align: middle;
+        }
+        .main-nav {
+          margin: auto;
+        }
+        .wrap {
+          background-color: #28353b;
+          height: 100vh;
+        }
+        .main-header {
+          border-bottom: 2px solid #ccc;
+        }
+
+        .HB {
+          width: 40px;
+          height: 40px;
+          background-color: black;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+          align-items: center;
+          margin: auto;
+        }
+
+        .HB span {
+          width: 80%;
+          height: 2px;
+          background-color: #fff;
+        }
+
+        .main-nav {
+          position: absolute;
+          background-color: #28353b;
+          width: 100%;
+          top: 100%;
+          left: -100%;
+          opacity: 0;
+          transition: 1s;
+        }
+        #menu-control:checked ~ .main-header .main-nav {
+          left: 0;
+          opacity: 1;
+        }
+        #menu-control:checked ~ .main-header .HB span:first-child {
+          display: none;
+        }
+        #menu-control:checked ~ .main-header .HB span:nth-child(2) {
+          transform: rotate(45deg) translate(30%);
+          transition: 0.5s ease-out;
+        }
+        #menu-control:checked ~ .main-header .HB span:nth-child(3) {
+          transform: rotate(-45deg) translate(30%);
+          transition: 0.5s ease-out;
+        }
+        .main-nav a {
+          display: block;
+          width: 100%;
+          border-bottom: 1px solid #fa0;
+        }
+        .main-menu {
+          flex-direction: column;
+        }
+        .main-menu li {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .main-menu li:hover{
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+        }
+        .main-menu{
+          position: relative;
+          display: block;
+        }
+        .sub-menu{
+          display: none;
+          position: relative;
+        } 
+        .main-menu .main-menu-control:hover .sub-menu{
+          display: flex;
+          flex-direction: column;
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <input type="checkbox" name="" id="menu-control" />
+    <header class="main-header">
+      <div class="container">
+        <label for="menu-control" class="HB">
+          <span></span>
+          <span></span>
+          <span></span>
+        </label>
+        <!-- ----------------------- -->
+        <div class="logo">
+          <h1>
+            <a href="#"
+              ><img src="https://cdn.nba.com/logos/leagues/logo-nba.svg"
+            /></a>
+          </h1>
+        </div>
+
+        <nav class="main-nav">
+          <ul class="main-menu">
+            <li class="main-menu-control">
+              <a href="#">Games</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="#">Home</a>
+                </li>
+                <li>
+                  <a href="#">Tickets</a>
+                </li>
+              </ul>
+            </li>
+            <li class="main-menu-control">
+              <a href="#">Schedule</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="#">2022-23 Season</a>
+                </li>
+                <li>
+                  <a href="#">League Pass</a>
+                </li>
+                <li>
+                  <a href="#">Key Dates</a>
+                </li>
+                <li>
+                  <a href="#">Tickets</a>
+                </li>
+              </ul>
+            </li>
+            <li class="main-menu-control">
+              <a href="#">Watch</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="#">News</a>
+                </li>
+                <li>
+                  <a href="#">NBA TV</a>
+                </li>
+              </ul>
+            </li>
+            <li class="main-menu-control">
+              <a href="#">News</a>
+              <ul class="sub-menu">
+                <li>
+                  <a href="#">Home</a>
+                </li>
+                <li>
+                  <a href="#">Top Stories</a>
+                </li>
+                <li>
+                  <a href="#">Lebron Tracker</a>
+                </li>
+                <li>
+                  <a href="#">Power Rankings</a>
+                </li>
+                <li>
+                  <a href="#">Features</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+  </body>
+</html>
