@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/d9aa359c3b.js" crossorigin="anonymous"></script>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/brands.min.css"> -->
+</head>
+<style>
+    .container {
+        display: flex;
+        flex-direction: row;
+        width: 960px;
+    }
+
+    .title {
+        margin: 0 320px;
+    }
+
+    .fa-circle-arrow-right,
+    .fa-circle-arrow-left {
+        font-size: 150px;
+    }
+
+    .img img {
+        width: 500px;
+    }
+</style>
+
+<body>
+    <div class="title">
+        <h1>360 賞車</h1>
+    </div>
+
+    <div class="container" id="container">
+
+        <div class="right">
+            <i class="fa-solid fa-circle-arrow-right"></i>
+        </div>
+
+        <div class="img">
+            <img src="https://hotaicdn.azureedge.net/toyotaweb/360EXT_1_18_1.png" alt="">
+        </div>
+        <div class="left">
+            <i class="fa-solid fa-circle-arrow-left"></i>
+        </div>
+    </div>
+
+    <script>
+        let carArray = [];
+        let container;
+        let left;
+        let right;
+        let img;
+        let index = 0;
+        GenCarArray();
+
+
+
+        window.onload = function () {
+            container = document.getElementById("container");
+            left = document.querySelector(".left");
+            right = document.querySelector(".right");
+            img = document.querySelector("#container img");
+            img.src = carArray[index];
+
+            GenCarArray();
+
+            left.addEventListener('click', turn => {
+                if (index === 60) {
+                    index = 0
+                }
+                else {
+                    index++
+                }
+                img.src = carArray[index];
+            })
+
+            right.addEventListener('click', turn => {
+                if (index === 0) {
+                    index = 60
+                }
+                else {
+                    index--
+                }
+                img.src = carArray[index];
+            })
+
+
+
+
+            let json = JSON.stringify(carArray);
+            console.log(json);
+        };
+
+        function GenCarArray() {
+            for (let i = 1; i <= 60; i++) {
+                let urlTemplate = `https://hotaicdn.azureedge.net/toyotaweb/360EXT_1_18_${i}.png`;
+                carArray.push(urlTemplate);
+            }
+        }
+
+      // function GenArhi() {
+      //     // imageArray.forEach(function(item, index){ });
+      //     // imageArray.forEach((item, index)=>{ });
+
+      //     imageArray.forEach(url => {
+      //         //1.建立DOM元素
+      //         let img = document.createElement("img");
+      //         //2.設定src屬性
+      //         img.setAttribute("src", url);
+      //         //3.把img dom元素加入到container中
+      //         container.appendChild(img);
+      //         //container.append(img ,img2, img3, img4);
+      //     });
+      // }
+         // carArray.forEach((url) => {
+            //     //1.建立DOM元素
+            //     let img = document.createElement("img");
+            //     //2.設定src屬性
+            //     img.setAttribute("src", url);
+            //     //3.把img dom元素加入到container中
+            //     container.append(img);
+            // });yu
+    </script>
+</body>
+
+</html>

@@ -61,6 +61,7 @@
       }
       .sub-menu li:hover a {
         text-decoration: underline;
+        width: fit-content;
       }
 
       .sub-menu {
@@ -68,7 +69,7 @@
         left: 100%;
         top: 75px;
         background-color: rgb(137, 135, 135);
-        width: 120px;
+        width: fit-content;
         text-align: center;
         transform: translate(-50%, -150%);
         transition: 1s;
@@ -179,14 +180,19 @@
           width: 100%;
           text-align: center;
         }
+        .main-menu li:hover a {
+          color: #28353b;
+          font-weight: 600;
+        }
         .main-menu {
           position: relative;
           display: block;
         }
         .sub-menu {
-            display: none;
+          display: none;
           position: relative;
         }
+
         .main-menu .main-menu-control:hover a {
           border-bottom: transparent;
         }
