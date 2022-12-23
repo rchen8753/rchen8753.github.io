@@ -112,7 +112,6 @@ else if(guessNumber < min || guessNumber > max || isNaN(guessNumber)){
       }
       outputText.innerText = `${min}~${max}`
       inputDom.value = '';
-      outputText.innerText = answer;  
   })
   
   
