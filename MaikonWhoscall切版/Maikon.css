@@ -181,7 +181,7 @@
     margin: 100px 0;
 }
 
-.services{
+.services {
     max-width: 1200px;
     margin: auto;
     padding-left: 15px;
@@ -194,9 +194,10 @@
     font-weight: 500;
 }
 
-.services-list{
+.services-list {
     margin-left: 20px;
 }
+
 .services-list-item {
     height: 100%;
     align-content: center;
@@ -205,7 +206,8 @@
 .services-list .col-12 {
     display: inline-block;
     padding: 15px;
-    width: 375px;;
+    width: 375px;
+    ;
     vertical-align: baseline;
 }
 
@@ -326,6 +328,7 @@
     vertical-align: middle;
 }
 
+
 .section-projects {
     width: 100%;
     background-color: #2570FF;
@@ -333,25 +336,21 @@
 }
 
 .section-projects .projects {
+
     max-width: 1200px;
     margin: auto;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 
 .projects .projects-info {
-    height: 531px;
-    width: 600px;
-    padding: 50px 50px;
+    padding: 50px;
 }
 
 .projects .projects-info .row {
     display: flex;
     flex-wrap: wrap;
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 10px;
-    width: 700px;
 }
 
 .projects .projects-info .row .projects-info-text {
@@ -360,14 +359,16 @@
     border-radius: 10px;
     margin: 15px;
     text-align: center;
-    width: 250px;
+    width: 200px;
     height: 200px;
+
 }
 
 .projects .projects-info .row .projects-info-text div {
-    width: 100%;
+
+    width: 600px;
     margin: auto;
-    text-align: center;
+    text-align: left;
     padding: 0 10px;
 }
 
@@ -380,15 +381,10 @@
 .projects-info-text p {
     color: #fff;
     text-align: left;
-    font-size: 13px;
-    line-height: 1.5;
+    font-size: 12px;
     display: flex;
     flex-wrap: wrap;
-}
-
-.projects-info-title {
-    padding: 60px;
-    margin-left: 50px;
+    margin: 10px;
 }
 
 .projects-info-title h3 {
@@ -420,9 +416,10 @@
 
 .projects-info-title div a:hover {
     background-color: #1FDE82;
-    transition: .3s;
+    transition: 0.3s;
     border: none;
 }
+
 
 .section-work {
     width: 100%;

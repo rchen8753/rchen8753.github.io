@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Bootstrap demo</title>
+      <link rel="stylesheet" href="./../reset.css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+      <link rel="stylesheet" href="npm i bootstrap@5.3.0-alpha1">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+      <style>
+            nav.navbar {
+                  /* position: fixed; */
+                  z-index: 1;
+            }
+
+            a.nav-link {
+                  color: #000;
+            }
+
+            a.nav-link:hover {
+                  color: #53CB5F;
+            }
+
+            .navbar-brand {
+                  width: 150px;
+            }
+
+            .btn-success {
+                  --bs-btn-border-color: none;
+                  --bs-btn-bg: #00C300;
+            }
+
+
+            a.btn {
+                  background-color: #00C300;
+            }
+
+            a.btn:hover {
+                  background-color: #01E101;
+            }
+
+            button.btn:active {
+                  --bs-btn-active-border-color: transparent;
+            }
+
+            .row.position-absolute {
+                  top: 200px;
+                  width: 100vh;
+            }
+
+            span.color {
+                  background-image: linear-gradient(#fff 0%, #CBFACB 100%);
+            }
+
+            .btn-group {
+                  outline: 3px solid #00C300;
+            }
+
+            .btn.btn-secondary:first-child {
+                  background-color: #00C300;
+                  color: #fff;
+                  --bs-btn-border-color: #00C300;
+            }
+
+            .btn.btn-secondary:last-child {
+                  background-color: #fff;
+                  color: #00C300;
+                  --bs-btn-border-color: #00C300;
+            }
+
+            h3 {
+                  color: #00C300;
+            }
+
+            .btn.fw-bold:active,
+            .btn.fw-bold {
+                  color: #fff;
+                  background-color: #00C300;
+            }
+
+            .modal-body.text-start a {
+                  color: #00C300;
+                  text-decoration: none;
+            }
+
+            .modal-body.text-start a:hover {
+                  text-decoration: underline;
+            }
+
+            .row:nth-child(2) .modal-content .modal-header {
+                  /* background-color: #000; */
+                  --bs-modal-header-border-color: transparent;
+            }
+
+            h5.card-title.green {
+                  color: #00C300;
+            }
+
+            ul {
+                  list-style: disc;
+                  text-indent: -2em;
+            }
+
+            li {
+                  text-indent: 0em;
+            }
+
+            li::marker {
+                  color: #00C300;
+            }
+
+            .col-12.col-md-10 img {
+                  transform: rotateY(180deg);
+            }
+
+            .card.rounded-0.text-center {
+                  background-color: #00C300;
+                  color: #fff;
+            }
+
+            [aria-expanded="true"] .fa-plus,
+            [aria-expanded="false"] .fa-minus {
+                  display: none;
+            }
+
+            [aria-expanded="false"] .fa-plus,
+            [aria-expanded="true"] .fa-minus {
+                  display: flex;
+                  align-items: center;
+            }
+
+            .fa-minus,
+            .fa-plus {
+                  color: #00C300;
+            }
+
+            p a {
+                  text-decoration: none;
+                  color: #00C300;
+            }
+
+            p a:hover {
+                  text-decoration: underline;
+                  color: #00C300;
+            }
+
+            .footer {
+                  background-color: #2c323f;
+            }
+
+            .col-12.col-md-2.lh-lg li {
+                  list-style: none;
+                  text-indent: -2em;
+            }
+
+            ul a {
+                  text-decoration: none;
+                  color: #fff;
+            }
+
+            ul a:hover {
+                  text-decoration: none;
+                  color: #fff;
+            }
+
+            li>p:hover {
+                  color: #fff;
+            }
+
+            .btn.btn-secondary.dropdown-toggle {
+                  background-color: transparent;
+                  --bs-btn-border-width: 0px;
+            }
+
+            .dropdown-menu {
+                  --bs-dropdown-bg: #2c323f;
+                  --bs-dropdown-border-color: #ccc;
+            }
+
+            .dropdown-item {
+                  color: #fff;
+            }
+
+            .col-12.col-md-8 a {
+                  text-decoration: none;
+                  color: #6c757d;
+            }
+
+            .col-12.col-md-8 a:hover {
+                  color: #fff;
+            }
+
+            .container-fluid.d-flex.flex-column.justify-content-center .row:first-child .col-12.d-flex {
+                  background-image: url(./../whoscall網站圖片檔/premium_hero_mobile-1200.png.webp);
+                  background-size: cover;
+                  height: 100vh;
+            }
+
+            .container-fluid.py-5 {
+                  background-image: url(./../whoscall網站圖片檔/index-download-bg-5bd89e0a1a23f9a40199d29577cd911b.svg);
+
+            }
+
+            @media screen and (min-width:768px) {
+                  .container-fluid.d-flex.flex-column.justify-content-center .row:first-child .col-md-12.d-flex {
+                        background-image: url(./../whoscall網站圖片檔/premium_hero-1500.png.webp);
+                        background-size: cover;
+                        height: 76.5vh;
+                  }
+
+                  .btn.fw-bold.my-auto {
+                        color: #00C300;
+                        background-color: transparent;
+                  }
+            }
+      </style>
+</head>
+
+<body>
+      <nav class="navbar navbar-expand-lg bg-light shadow p-3 mb-5 bg-body rounded w-100 position-fixed">
+            <div class="container">
+                  <a class="navbar-brand" href="#">
+                        <h1 class="d-none">whoscall</h1>
+                        <img src="./asset 6.svg" alt="">
+                  </a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                              <a class="nav-link fw-bold" aria-current="page" href="#">Whoscall 進階版</a>
+                              <a class="nav-link fw-bold" href="#">Whoscall 認證號碼</a>
+                              <a class="nav-link fw-bold" href="#">認識 Whoscall</a>
+                              <a class="nav-link fw-bold" href="#">Whoscall 專欄</a>
+                              <a class="nav-link fw-bold" href="#">常見問題</a>
+
+                        </div>
+                  </div>
+                  <a class="btn fw-bold rounded-5 fs-md-5 px-md-4 py-md-2 btn-success text-light" href="#"
+                        role="button">免費下載</a>
+            </div>
+      </nav>
+
+      <div class="container-fluid d-flex flex-column justify-content-center">
+            <div class="row">
+                  <div class="col-12 col-md-12 d-flex justify-content-center position-relative"> <!--pt-5 mt-4 -->
+                        <!-- <img src="./../whoscall網站圖片檔/premium_hero-1500.png.webp" class="img-fluid align-self-center " alt="..."> -->
+                        <div class="row position-absolute justify-content-center">
+                              <div class="col-3">
+                                    <img src="../Table/assets/asset 7.svg" alt="corner1">
+                              </div>
+                              <div class="col-6 col-md-12 m-auto"> <!--pl-5 w-100 -->
+                                    <h2 class="fw-bold h1">Whoscall 進階版</h2>
+                                    <p class="h4">4 大防護功能，360 度守護你的通訊生活</p>
+                                    <p class="">每月 <span>NT$ 50</span> 起，銅板價格享受全方位安全防護。</p>
+                                    <a class="btn rounded-5 fs-5 px-4 py-2 text-light fw-bold" href="#"
+                                          role="button">瞭解方案</a>
+                              </div>
+                              <div class="col-3">
+                                    <img src="../Table/assets/asset 8.svg" alt="corner2">
+                              </div>
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+      <div class="container d-flex flex-column justify-content-center ">
+            <div class="row">
+                  <h2 class="fw-bold h1 text-center pt-5">強化通訊防護力，進階功能一次享有</h2>
+                  <div class="col-2 col-md-4"></div>
+                  <div class="col-8 col-md-4 my-5 pb-5">
+                        <!-- <div class="row my-5 pb-5"> -->
+                        <!-- <div class="col-2"></div> -->
+                        <!-- <div class="col-8"> -->
+                        <div class="btn-group d-flex align-self-center" role="group" aria-label="Basic example">
+                              <button type="button" class="btn btn-secondary  fw-bold">iOS</button>
+                              <button type="button" class="btn btn-secondary  fw-bold text-capitalize">android</button>
+                        </div>
+                        <!-- </div> -->
+                        <!-- <div class="col-2"></div> -->
+                        <!-- </div> -->
+                  </div>
+                  <div class="col-2 col-md-4"></div>
+            </div>
+            <div class="row pt-5d-flex flex-row align-items-center">
+                  <div class="col-md-1"></div>
+                  <div class="col-12 col-md-4">
+                        <img class="img-fluid" src="https://karta060925.github.io/WhoscallBS5/img/IOS0.png" alt="pic1">
+                  </div>
+                  <div class="col-12 col-md-6 text-center text-md-start">
+                        <h3 class="fw-bold fs-1">自動封鎖騷擾號碼</h3>
+                        <p class="fw-bold fs-5 fs-md-3">掛不斷的騷擾電話交給 Whoscall 幫你阻擋，<span class="color">把時間留給重要的人</span>
+                        </p>
+                        <div class="col-12 d-flex justify-content-between d-md-block">
+                              <div class="text text-start">
+                                    <div class="form-check fw-bold">
+                                          <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault1">
+                                          <label class="form-check-label" for="flexRadioDefault1">
+                                                免費版：手動封鎖
+                                          </label>
+                                    </div>
+                                    <div class="form-check fw-bold">
+                                          <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault1">
+                                          <label class="form-check-label" for="flexRadioDefault1">
+                                                進階版：自動封鎖
+                                          </label>
+                                    </div>
+                              </div>
+
+                              <button type="button" class="btn fw-bold my-auto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal-blockade">
+                                    了解更多
+                              </button>
+                        </div>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal-blockade" tabindex="-1"
+                              aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                    <div class="modal-content">
+                                          <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabe-blockadel">Modal title
+                                                </h1>
+                                                <button type="button" class="btn-close fs-2 text-right"
+                                                      data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body text-start fw-bold">
+                                                <h3>自動封鎖騷擾號碼</h3>
+                                                <p>Whoscall 的自動封鎖功能會幫您封鎖哪些騷擾號碼呢？ Whoscall
+                                                      會定期<span
+                                                            class="color">統計並驗證最新、最高頻被回報的詐騙與騷擾號碼</span>，例如：「假冒商家詐騙」、「保險推銷」、「一接就掛」等等，並整合內政部警政署
+                                                      165
+                                                      提供的詐騙電話，每週更新於特定清單中。</p>
+                                                <p>只要開啟自動封鎖騷擾號碼，即可自動阻擋這些高頻騷擾電話，對方也不會察覺已被封鎖，將會聽到「您撥的電話忙線中」。</p>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="col-md-1"></div>
+            </div>
+            <div class="row pt-5 d-flex flex-row-reverse align-items-center">
+                  <div class="col-md-1"></div>
+                  <div class="col-12 col-md-4">
+                        <img class="img-fluid" src="https://karta060925.github.io/WhoscallBS5/img/IOS1.png" alt="pic2">
+                  </div>
+                  <div class="col-12 col-md-6 text-center text-md-start">
+                        <h3 class="fw-bold fs-1">自動更新號碼資料庫</h3>
+                        <p class="fw-bold fs-5">詐騙電話隨時在變，定期更新掌握資訊，<span class="color">常保高效辨識率</span></p>
+                        <div class="col-12 d-flex justify-content-between
+                d-md-block">
+                              <div class="text text-start">
+
+                                    <div class="form-check fw-bold">
+                                          <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault1">
+                                          <label class="form-check-label" for="flexRadioDefault1">
+                                                免費版：手動更新
+                                          </label>
+                                    </div>
+                                    <div class="form-check fw-bold">
+                                          <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault1">
+                                          <label class="form-check-label" for="flexRadioDefault1">
+                                                進階版：自動更新
+                                          </label>
+                                    </div>
+                              </div>
+                              <!-- <p>了解更多</p> -->
+                              <!-- Button trigger modal -->
+                              <button type="button" class="btn fw-bold my-auto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal-renew">
+                                    了解更多
+                              </button>
+                        </div>
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal-renew" tabindex="-1"
+                              aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                    <div class="modal-content">
+                                          <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel-renew"></h1>
+                                                <div class="text text-start fw-bold">
+                                                      <h3 class="fw-bold fs-1">自動更新號碼資料庫</h3>
+                                                      <p><span class="color">「更新號碼資料庫」</span>和<span
+                                                                  class="color">「來電辨識」</span>的精準度有著密不可分的關係。詐騙、推銷騷擾號碼會不斷新增或更換，開啟<span
+                                                                  class="color">自動更新號碼資料庫</span>功能，定期第一時間更新資料庫，才是維持高品質辨識率正解！
+                                                      </p>
+                                                      <ul class="fw-bold lh-lg">號碼資料庫四大來源：
+                                                            <li><span class="color">攜手各國政府</span>整合詐騙資訊<lip>
+                                                            <li><span class="color">AI 人工智慧</span>預測詐騙號碼<lip>
+                                                            <li><span class="color">用戶主動回報</span>號碼來電資訊<lip>
+                                                            <li><span class="color">號碼審查小組</span>雙重驗證</li>
+                                                      </ul>
+                                                </div>
+                                                <button type="button"
+                                                      class="btn-close fs-2 text-right position-absolute fixed-top p-4"
+                                                      data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body text-start fw-bold">
+                                                <h3 class="fw-bold fs-3">相關文章</h3>
+
+                                                <p>延伸閱讀：<a href="a">網友好評使用中！全新進階功能【iOS 自動更新號碼資料庫】超詳解， 6 大QA一次看！</a></p>
+                                                <p>延伸閱讀：<a href="a">非更新不可？一定要每週更新 Ｗhoscall 號碼資料庫的 3 大理由！</a></p>
+
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="col-md-1"></div>
+            </div>
+            <div class="row pt-5d-flex flex-row align-items-center">
+                  <div class="col-md-1"></div>
+                  <div class="col-12 col-md-4">
+                        <img class="img-fluid" src="https://karta060925.github.io/WhoscallBS5/img/IOS2.png" alt="pic3">
+                  </div>
+                  <div class="col-12 col-md-6 text-center text-md-start">
+                        <h3 class="fw-bold fs-1">智慧簡訊管家</h3>
+                        <p class="fw-bold fs-5 fs-md-3">再也不用問「這個簡訊可以點嗎？」，<span class="color">釣魚簡訊釣不到你</span></p>
+                        <div class="col-12 d-flex justify-content-between
+                d-md-block">
+                              <div class="text text-start">
+                                    <div class="form-check fw-bold">
+                                          <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault1">
+                                          <label class="form-check-label" for="flexRadioDefault1">
+                                                免費版：無過濾簡訊
+                                          </label>
+                                    </div>
+                                    <div class="form-check fw-bold">
+                                          <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                                id="flexRadioDefault1">
+                                          <label class="form-check-label" for="flexRadioDefault1">
+                                                進階版：自動過濾簡訊
+                                          </label>
+                                    </div>
+                              <!-- <p>了解更多</p> -->
+                              <!-- Button trigger modal -->
+                              <button type="button" class="btn fw-bold my-auto" data-bs-toggle="modal"
+                                    data-bs-target="#exampleModal-wisdom">
+                                    了解更多
+                              </button>
+                        </div>
+
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal-wisdom" tabindex="-1"
+                              aria-labelledby="exampleModalLabel" aria-hidden="true">
+                              <div class="modal-dialog">
+                                    <div class="modal-content">
+                                          <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel-wisdom"></h1>
+                                                <div class="text text-start fw-bold">
+                                                      <h3 class="fw-bold fs-1">智慧簡訊管家</h3>
+                                                      <p>智慧簡訊管家幫您把關每一封陌生簡訊，透過 AI
+                                                            智慧辨識文字與連結，自動將訊息分類為一般訊息、垃圾訊息、交易訊息、促銷訊息，把讓人眼花撩亂的各種簡訊分門別類整理好，不須擔心錯過重要訊息。
+                                                      </p>
+
+                                                      <ul class="lh-lg">訊息分類：
+                                                            <li><span class="color">ㄧ般訊息</span>：非以下三類的簡訊</li>
+                                                            <li><span class="color">垃圾訊息</span>：詐騙、釣魚簡訊</li>
+                                                            <li><span class="color">交易訊息</span>：交易驗證碼的簡訊</li>
+                                                            <li><span class="color">促銷訊息</span>：推銷類型的簡訊</li>
+                                                            <p class="text-muted lh-lg">*由於 iOS 系統限制，一般訊息須於「所有訊息」匣中查看。
+                                                            </p>
+                                                      </ul>
+
+                                                </div>
+
+                                                <button type="button"
+                                                      class="btn-close fs-2 text-right position-absolute fixed-top p-4"
+                                                      data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body text-start fw-bold">
+                                                <h3 class="fw-bold fs-3">相關文章</h3>
+
+                                                <p>延伸閱讀：<a href="a">iOS 新功能登場！為你的 iPhone 聘請專屬「智慧簡訊管家」，自動過濾垃圾簡訊！</a></p>
+                                                <p>延伸閱讀：<a href="a">人稱垃圾簡訊の天敵！Android 智慧簡訊管家登場～檢查連結、過濾簡訊一手包辦！</a></p>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="col-md-1"></div>
+            </div>
+            <div class="row pt-5 d-flex flex-row-reverse align-items-center">
+                  <div class="col-md-1"></div>
+                  <div class="col-12 col-md-4">
+                        <img class="img-fluid" src="https://karta060925.github.io/WhoscallBS5/img/IOS3.png" alt="pic4">
+                  </div>
+                  <div class="col-12 col-md-6 text-center text-md-start">
+                        <h3 class="fw-bold fs-1">移除廣告</h3>
+                        <p class="fw-bold fs-5 fs-md-3">和廣告說掰掰，清爽介面，<span>使用更順暢</span></p>
+                        <div class="text text-start">
+                              <div class="form-check fw-bold">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                          免費版：有廣告
+                                    </label>
+                              </div>
+                              <div class="form-check fw-bold">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                                    <label class="form-check-label" for="flexRadioDefault1">
+                                          進階版：無廣告
+                                    </label>
+                              </div>
+                        </div>
+
+                  </div>
+                  <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                  <h2 class="fw-bold h1 text-center pt-5">用戶好評回饋</h2>
+                  <div class="col-md-1"></div>
+                  <div class="col-12 col-md-10">
+                        <img src="./assets/asset 9.svg" alt="userReflect">
+                        <p class="lh-lg fs-5 pb-5 fw-bold"><span>Whoscall不用把號碼加入通訊錄就可以封鎖</span>，好方便</p>
+                        <p class="text-end text-muted fw-bold">———by林先生</p>
+                  </div>
+                  <div class="col-md-1"></div>
+            </div>
+            <div class="row">
+                  <!-- <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav> -->
+            </div>
+      </div>
+      <div class="container-fluid bg-light fw-bold">
+            <div class="row">
+                  <h2 class="h1 py-5 text-center fw-bold">進階版方案比較</h2>
+            </div>
+            <div class="row pb-5 mb-5">
+                  <div class="col-md-2"></div>
+                  <div class="col-md-8">
+                        <div class="row">
+                              <div class="col-6 m-auto col-md-4">
+                                    <div class="card text-center opacity-0">
+                                          最熱門方案
+                                    </div>
+                                    <div class="card text-start rounded-0">
+                                          <div class="card-header bg-white">
+                                                <p>免費版</p>
+                                                <h5 class="card-title">FREE</h5>
+                                                <p>NT$0<span>/月</span></p>
+                                          </div>
+                                          <div class="card-body text-start">
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">反查號碼</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">陌生來電辨識</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-cross-circle-281309f230156380989be3cc2aac5a32.svg"
+                                                            alt=""> 自動封鎖騷擾號碼</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-cross-circle-281309f230156380989be3cc2aac5a32.svg"
+                                                            alt=""> 自動更新號碼資料庫
+                                                </p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-cross-circle-281309f230156380989be3cc2aac5a32.svg"
+                                                            alt=""> 智慧簡訊管家</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-cross-circle-281309f230156380989be3cc2aac5a32.svg"
+                                                            alt=""> 移除廣告</p>
+                                                <a href="#"
+                                                      class="btn btn-success fw-bold rounded-5 d-block text-center py-3 opacity-0">立即免費試用</a>
+                                          </div>
+
+                                    </div>
+                              </div>
+                              <div class="col-6 m-auto d-none d-md-block col-md-4">
+                                    <div class="card text-center opacity-0">
+                                          最熱門方案
+                                    </div>
+                                    <div class="card text-start rounded-0">
+                                          <div class="card-header bg-white">
+                                                <p>進階版-月方案</p>
+                                                <h5 class="card-title green">Premium</h5>
+                                                <p>NT$60<span>/月</span></p>
+                                          </div>
+                                          <div class="card-body text-start">
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">反查號碼</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">陌生來電辨識</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">自動封鎖騷擾號碼</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">自動更新號碼資料庫</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">智慧簡訊管家</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">移除廣告</p>
+                                                <a href="#"
+                                                      class="btn btn-success fw-bold rounded-5 d-block text-center py-3">立即免費試用</a>
+                                          </div>
+
+                                    </div>
+                              </div>
+                              <div class="col-6 m-auto d-none d-md-block col-md-4">
+                                    <div class="card text-center rounded-0">
+                                          最熱門方案
+                                    </div>
+                                    <div class="card rounded-0 text-start">
+                                          <div class="card-header bg-white">
+                                                <p>進階版-年方案</p>
+                                                <h5 class="card-title green">Premium</h5>
+                                                <p>NT$600<span>/月</span></p>
+                                          </div>
+                                          <div class="card-body text-start">
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">反查號碼</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">陌生來電辨識</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">自動封鎖騷擾號碼</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">自動更新號碼資料庫</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">智慧簡訊管家</p>
+                                                <p class="card-text"><img
+                                                            src="./../whoscall網站圖片檔/icon-check-circle-d90dd7899946d502a56ffe2be299abfb.svg"
+                                                            alt="">移除廣告</p>
+                                                <a href="#"
+                                                      class="btn btn-success fw-bold rounded-5 d-block text-center py-3">立即免費試用</a>
+                                          </div>
+
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="col-md-2"></div>
+            </div>
+      </div>
+      <div class="container pb-5">
+            <div class="row">
+                  <h2 class="h1 py-5 text-center fw-bold">常見問題</h2>
+            </div>
+            <div class="row">
+                  <div class="col-12 m-auto col-md-9">
+                        <h4 class="text-black lh-lg fw-bold border-top border-dark d-flex justify-content-between"
+                              data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                              aria-controls="collapseExample">
+                              Q. 進階版是否有試用期？是否會自動續訂？
+                              <i class="fa-solid fa-minus "></i>
+                              <i class="fa-solid fa-plus "></i>
+                        </h4>
+                        <div class="collapse" id="collapseExample">
+                              <!-- <div class="card card-body"> -->
+                              <p class="fw-bold lh-lg">購買進階版都將享有 7 天的試用期，並於試用期結束後自動續訂。若想暫停自動續訂，須自行至商店設定取消訂閱。</p>
+                              <!-- </div> -->
+                        </div>
+                  </div>
+                  <div class="col-12 m-auto col-md-9">
+                        <h4 class="text-black lh-lg fw-bold border-top border-dark d-flex justify-content-between d-flex justify-content-between"
+                              data-bs-toggle="collapse" href="#collapseExampleQ2" role="button" aria-expanded="false"
+                              aria-controls="collapseExampleQ2">
+                              Q. 我只想要試用，為什麼被收費了？
+                              <i class="fa-solid fa-minus "></i>
+                              <i class="fa-solid fa-plus "></i>
+                        </h4>
+                        <div class="collapse" id="collapseExampleQ2">
+                              <!-- <div class="card card-body"> -->
+                              <p class="fw-bold lh-lg">試用期間結束後將會自動續訂，若想暫停自動續訂，須自行至商店設定取消訂閱。若沒在試用期到期前取消，則會被視同同意續訂而進行扣款。
+                              </p>
+                              <!-- </div> -->
+                        </div>
+                  </div>
+                  <div class="col-12 m-auto col-md-9">
+                        <h4 class="text-black lh-lg fw-bold border-top border-dark d-flex justify-content-between"
+                              data-bs-toggle="collapse" href="#collapseExampleQ3" role="button" aria-expanded="false"
+                              aria-controls="collapseExampleQ3">
+                              Q. 使用自動封鎖騷擾號碼功能後，就不會接到騷擾號碼了嗎？
+                              <i class="fa-solid fa-minus "></i>
+                              <i class="fa-solid fa-plus "></i>
+                        </h4>
+                        <div class="collapse" id="collapseExampleQ3">
+                              <!-- <div class="card card-body"> -->
+                              <p class="fw-bold lh-lg">Whoscall
+                                    會定期統計並驗證最新、最高頻被回報的詐騙與騷擾號碼，例如：「假冒商家詐騙」、「保險推銷」、「一接就掛」等等，並整合內政部警政署
+                                    165
+                                    提供的詐騙電話，每週更新於特定清單中。只要開啟自動封鎖騷擾號碼，即可自動阻擋這些高頻騷擾電話。</p>
+                              <p class="fw-bold lh-lg">而不在自動封鎖號碼特定清單中的騷擾來電，仍會透過警示符號給予提醒，由用戶決定是否接聽與封鎖。</p>
+                              <!-- </div> -->
+                        </div>
+                  </div>
+                  <div class="col-12 m-auto col-md-9">
+                        <h4 class="text-black lh-lg fw-bold border-top border-dark d-flex justify-content-between"
+                              data-bs-toggle="collapse" href="#collapseExampleQ4" role="button" aria-expanded="false"
+                              aria-controls="collapseExampleQ4">
+                              Q. 請問進階版可以跨系統/裝置使用嗎？例如我原先使用 iPhone，想改使用 Android 系統。
+                              <i class="fa-solid fa-minus "></i>
+                              <i class="fa-solid fa-plus "></i>
+                        </h4>
+                        <div class="collapse" id="collapseExampleQ4">
+                              <!-- <div class="card card-body"> -->
+                              <p class="fw-bold lh-lg">由於 Whoscall 進階版訂購的平台分別為 Google Play 與 App Store
+                                    且服務功能不同，因此服務內容與方案無法進行轉移的
+                              </p>
+                              <!-- </div> -->
+                        </div>
+                  </div>
+                  <div class="col-12 m-auto col-md-9">
+                        <h4 class="text-black lh-lg fw-bold border-top border-dark d-flex justify-content-between"
+                              data-bs-toggle="collapse" href="#collapseExampleQ5" role="button" aria-expanded="false"
+                              aria-controls="collapseExampleQ5">
+                              Q. Whoscall 進階版團購組合的序號可於何處進行兌換？
+                              <i class="fa-solid fa-minus "></i>
+                              <i class="fa-solid fa-plus "></i>
+                        </h4>
+                        <div class="collapse" id="collapseExampleQ5">
+                              <!-- <div class="card card-body"> -->
+                              <p class="fw-bold lh-lg">請前往<a href=""> https://redeem.whoscall.com/zh-Hant/</a> 。登入
+                                    Whoscall
+                                    帳號成功後，輸入代碼即可完成兌換。</p>
+                              <!-- </div> -->
+                        </div>
+                  </div>
+            </div>
+      </div>
+      <div class="container-fluid py-5">
+            <div class="row">
+                  <div class="col-3"></div>
+                  <div class="col-6">
+                        <div class="row">
+                              <div class="col-6 m-auto col-md-3">
+                                    <img src="./../whoscall網站圖片檔/download-app-icon-74ea8cde13dea4ba553e8b99e7ecfe59.svg"
+                                          alt="">
+                              </div>
+                              <div class="col-12 col-md-9 text-center ">
+                                    <p class="h1 text-white">Download Now</p>
+                                    <p class="h4 text-white">你的陌生來電辨識 APP</p>
+                                    <img src="./../whoscall網站圖片檔/app-store-badge-f0b2da6ae624c644b0ad82d76dc94191.svg"
+                                          alt="">
+                                    <img src="./../whoscall網站圖片檔/google-play-badge-6719dbfca6574b355c1bdf1bff049459.svg"
+                                          alt="">
+                              </div>
+                        </div>
+                  </div>
+                  <div class="col-3"></div>
+            </div>
+      </div>
+      <div class="footer container-fluid">
+            <div class="row fw-bold text-muted pt-3">
+                  <div class="col-12 col-md-2 lh-lg">
+                        <ul><a href="a">Whoscall</a>
+                              <li>
+                                    <p>認識Whoscall</p>
+                              </li>
+                              <li>
+                                    <p>Whoscall進階版</p>
+                              </li>
+                              <li>
+                                    <p>Whoscall專欄</p>
+                              </li>
+                              <li>
+                                    <p>Whoscall認證號碼</p>
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="col-12 col-md-2 lh-lg">
+                        <ul><a href="a">公司</a>
+                              <li>
+                                    <p>工作機會</p>
+                              </li>
+                        </ul>
+                        <ul><a href="a">媒體中心</a>
+                              <li>
+                                    <p>最新消息</p>
+                              </li>
+                              <li>
+                                    <p>品牌識別</p>
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="col-12 col-md-2 lh-lg">
+                        <ul><a href="a">客戶服務</a>
+                              <li>
+                                    <p>安全性</p>
+                              </li>
+                              <li>
+                                    <p>常見問題</p>
+                              </li>
+                              <li>
+                                    <p>聯絡我們</p>
+                              </li>
+                        </ul>
+                  </div>
+                  <div class="col-12 col-md-2"></div>
+                  <div class="col-12 col-md-4">
+                        <p>追蹤我們</p>
+                        <i class="fs-2 px-2 fa-brands fa-instagram"></i>
+                        <i class="fs-2 px-2 fa-brands fa-square-facebook"></i>
+                        <i class="fs-2 px-2 fa-brands fa-twitter"></i>
+                        <i class="fs-2 px-2 fa-brands fa-youtube"></i>
+                        <p>powered by</p>
+                        <p class="h3 text-white">Gogolook</p>
+                  </div>
+            </div>
+            <div class="row fw-bold text-muted border-top flex-sm-column-reverse flex-md-row">
+                  <div class="col-12 col-md-8">
+                        <p class="d-md-inline">© 2022 Gogolook. All Rights Reserved.</p>
+                        <a class="d-md-inline p-3" href="a">服務條款</a>
+                        <a class="d-md-inline p-3" href="a">隱私權政策</a>
+                  </div>
+                  <div class="col-12 col-md-4">
+                        <div class="dropdown">
+                              <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa-solid fa-globe">中文</i>
+                              </a>
+
+                              <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">English</a></li>
+                                    <li><a class="dropdown-item" href="#">中文</a></li>
+                                    <li><a class="dropdown-item" href="#">日本語</a></li>
+                                    <li><a class="dropdown-item" href="#">ภาษาไทย</a></li>
+                                    <li><a class="dropdown-item" href="#">Bahasa Melayu</a></li>
+                                    <li><a class="dropdown-item" href="#">馬來西亞 (中文)</a></li>
+                                    <li><a class="dropdown-item" href="#">한국어</a></li>
+                                    <li><a class="dropdown-item" href="#">Português brasileiro</a></li>
+                              </ul>
+                        </div>
+                  </div>
+            </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>

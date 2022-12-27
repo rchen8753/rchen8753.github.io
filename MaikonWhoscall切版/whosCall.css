@@ -1,0 +1,436 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900 &display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: 'Noto Sans TC', sans-serif;
+  box-sizing: border-box;
+}
+body {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+:root {
+  --wgreen: #00C300;
+  --fgray: #373C49;
+  --white: #fff;
+  --fgreen: rgb(47, 239, 47);
+}
+.main-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  background-color: var(--white);
+}
+nav {
+  --bs-light-rgb: var(--white);
+  outline: 3px solid;
+  display: flex;
+  flex-direction: row;
+}
+.navbar-nav .nav-link {
+  --bs-nav-link-color: var(--fgray);
+  font-weight: 700;
+}
+.navbar-expand-xl .navbar-collapse {
+  justify-content: space-between;
+}
+.navbar-nav .nav-link:hover {
+  color: var(--wgreen);
+}
+.navbar-nav .nav-link.active:hover {
+  --bs-navbar-active-color: var(--wgreen);
+}
+.navbar-brand h1 {
+  color: var(--wgreen);
+  font-weight: 700;
+}
+.collapse .btn {
+  border-radius: 20px;
+  font-weight: 700;
+  padding: 8px 30px;
+}
+.btn-success {
+  --bs-btn-bg: var(--wgreen) !important;
+  --bs-btn-hover-bg: var(--fgreen);
+  --bs-btn-hover-border-color: var(--fgreen) !important;
+  --bs-btn-border-color: transparent !important;
+}
+.btn:hover {
+  --bs-btn-hover-bg: var(--fgreen);
+}
+.section-kv {
+  margin-top: 80px;
+}
+.kv-container-xl {
+  position: relative;
+  height: 60vh;
+  background: url('/Day7HW-RWD-Whoscall-ByBootStrap/whoscall/premium_hero-1500.png.webp') no-repeat center center;
+}
+.kv-deco-big {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.kv-deco-small {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.whoscall-main-title {
+  position: absolute;
+  top: 120px;
+  left: 250px;
+}
+.whoscall-main-title h2 {
+  color: var(--fgray);
+  font-size: 44px;
+  font-weight: 700;
+}
+.whoscall-main-title p {
+  color: var(--fgray);
+  font-size: 24px;
+  font-weight: 700;
+}
+.whoscall-main-title span {
+  color: var(--fgray);
+  font-weight: 700;
+  font-size: 20px;
+}
+.whoscall-main-title button {
+  display: block;
+  padding: 8px 30px;
+  border-radius: 20px;
+  font-weight: 700;
+}
+.whoscall-main-title .yellow {
+  background: linear-gradient(89.2deg, #ffbd00 59.96%, #ffe000 98.78%) 0 100% / 100% 10px no-repeat;
+}
+.function-title h2 {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--fgray);
+}
+.btn-outline-primary {
+  --bs-btn-color: var(--wgreen) !important;
+  --bs-btn-border-color: var(--wgreen) !important;
+}
+.btn-check:checked+.btn {
+  --bs-btn-active-bg: var(--wgreen);
+  --bs-btn-active-border-color: var(--wgreen);
+}
+.function-feature h3 {
+  color: var(--wgreen);
+  font-size: 36px;
+  font-weight: 700;
+}
+.function-feature p {
+  color: var(--fgray);
+  font-size: 24px;
+  font-weight: 500;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+.function-feature .green {
+  background: linear-gradient(180deg, transparent 0, transparent 50%, rgba(151, 245, 151, 0.5) 0, rgba(151, 245, 151, 0.5));
+}
+.function-pic img {
+  width: 100%;
+  vertical-align: middle;
+}
+.function-container .row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.function-ver .free .free-pic img {
+  width: 100%;
+  vertical-align: middle;
+}
+.function-ver .adv .adv-pic img {
+  width: 100%;
+  vertical-align: middle;
+}
+.function-ver a {
+  text-decoration: none;
+  color: var(--wgreen);
+
+}
+.function-ver a:hover {
+  --bs-link-hover-color: var(--wgreen);
+}
+.col-12 .card-body {
+  padding-bottom: 50px;
+  position: relative;
+}
+.card-head {
+  position: relative;
+}
+.card-head-deco {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  background-color: var(--wgreen);
+  width: 100%;
+  text-align: center;
+}
+.card-head-deco p {
+  margin-bottom: 0;
+  color: var(--white);
+}
+.price-version .green {
+  color: var(--wgreen);
+}
+.price-deco {
+  position: relative;
+}
+.price-deco::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 12px;
+  background-color: #00c300;
+  width: calc(100% - 5px);
+  height: 100%;
+  transform: skewX(-30deg);
+  margin-bottom: 10px;
+}
+.price-deco img {
+  width: 25px;
+  position: relative;
+  z-index: 1;
+  vertical-align: middle;
+  padding-right: 5px;
+  top: -5px;
+}
+.price-deco .skew {
+  color: var(--white);
+  position: relative;
+  z-index: 1;
+  display: block;
+  top: -5px;
+}
+.price-version [color="green"] {
+  color: var(--wgreen);
+}
+.section-advanced {
+  background-color: #F5F6F9;
+  padding-bottom: 100px;
+}
+.question-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+.question-title h3 {
+  font-size: 38px;
+}
+.accordion-item:last-of-type .accordion-button.collapsed {
+  --bs-accordion-inner-border-radius: 0;
+}
+.accordion-button:focus {
+  --bs-accordion-btn-focus-border-color: transparent;
+  --bs-accordion-btn-focus-box-shadow: 0;
+}
+.accordion-button:not(.collapsed) {
+  --bs-accordion-active-color: black;
+  --bs-accordion-active-bg: var(--white);
+  border-bottom: 0 !important;
+}
+.accordion {
+  --bs-accordion-border-width: 0 !important;
+}
+.accordion-header {
+  font-size: 28px;
+}
+.accordion-button {
+  border-bottom: 1px solid black !important;
+  --bs-accordion-btn-padding-x: 0;
+}
+.accordion-button::after {
+  background-image: none !important;
+  transform: none !important;
+  display: none;
+}
+.accordion-button .fa-solid {
+  color: var(--wgreen);
+  font-size: 32px;
+}
+.QA-btn[aria-expanded="false"] .fa-minus,
+.QA-btn[aria-expanded="true"] .fa-plus {
+  display: none;
+}
+.section-download {
+  margin-top: 100px;
+  background: url('/Day7HW-RWD-Whoscall-ByBootStrap/whoscall/index-download-bg.svg') center center;
+}
+.row .main-icon img {
+  width: 100%;
+  vertical-align: middle;
+}
+.app-title p {
+  color: var(--white);
+  font-size: 40px;
+  font-weight: 700;
+}
+.app-title span {
+  color: var(--white);
+  font-size: 24px;
+  font-weight: 700;
+  padding-left: 25px;
+}
+.app-title .app-icon img {
+  width: 100%;
+  vertical-align: middle;
+}
+.app-icon .apple-icon {
+  padding-right: 10px;
+}
+.response-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.response-title h3 {
+  font-size: 40px;
+}
+.owl-theme .item {
+  height: 20rem;
+  padding: 1rem;
+}
+
+.owl-carousel .item h4 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.4375rem;
+  margin-top: 0;
+}
+.slide::before {
+  content: "";
+  background: url('/Day7HW-RWD-Whoscall-ByBootStrap/whoscall/ic-quote-right.svg') no-repeat;
+  height: 2rem;
+  width: 2.8rem;
+  transform: rotateY(180deg);
+  text-align: left;
+
+}
+.slide-text p {
+  font-size: 28px;
+  line-height: 1.7;
+}
+.slide-text span {
+  background: linear-gradient(180deg, transparent 0, transparent 50%, rgba(151, 245, 151, 0.5) 0, rgba(151, 245, 151, 0.5));
+}
+.slide-commentator p {
+  font-size: 22px;
+  color: #ccc;
+}
+@media screen and(width < 768px) {
+  .navbar-nav {
+    align-items: center;
+    height: 100vh;
+  }
+  .navbar-toggler {
+    position: relative;
+  }
+  .navbar-collapse .btn {
+    position: absolute;
+    top: 1.5em;
+    right: 5em;
+    padding: 0;
+    border-radius: 0;
+    background-color: var(--white);
+    color: var(--wgreen);
+    border: none;
+    border-bottom: 1px solid var(--wgreen);
+  }
+  .whoscall-main-title {
+    left: 100px;
+  }
+  .whoscall-main-title h2 {
+    font-size: 38px;
+  }
+  .whoscall-main-title p {
+    font-size: 18px;
+  }
+  .whoscall-main-title span {
+    font-size: 14px;
+  }
+  .function-feature,
+  .function-ver {
+    padding-left: 20px;
+  }
+  .card-body .btn {
+    width: 45% !important;
+  }
+  .row .main-icon {
+    width: 20%;
+  }
+  .d-flex .accordion-button {
+    font-size: 0.7rem;
+  }
+  .download-container .row .col-12 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .download-container .row .col-9 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .app-icon {
+    flex-direction: column;
+  }
+  .link {
+    padding-left: 15px;
+  }
+  .follow-us .icon-list {
+    justify-content: flex-start;
+  }
+  .power-by {
+    padding-left: 10px;
+  }
+  .text,
+  .language {
+    padding-left: 1.8rem;
+  }
+}
+@media screen and(768px < width < 1200px) {
+  .navbar-nav {
+    align-items: center;
+    height: 100vh;
+  }
+
+  .navbar-toggler {
+    position: relative;
+  }
+
+  .navbar-collapse .btn {
+    position: absolute;
+    top: 1.5em;
+    right: 5em;
+    padding: 0;
+    border-radius: 0;
+    background-color: var(--white);
+    color: var(--wgreen);
+    border: none;
+    border-bottom: 1px solid var(--wgreen);
+  }
+  .app-title p {
+    font-size: 32px;
+  }
+  .app-title span {
+    padding-left: 0;
+  }
+  .follow-us .icon-list {
+    padding-left: 0;
+  }
+  .text,
+  .language {
+    padding-left: 1rem;
+  }
+}
+@media screen and(width > 1200px) {
+  .footer-social .icon-list {
+    justify-content: space-evenly;
+    padding-left: 0;
+  }
+}
