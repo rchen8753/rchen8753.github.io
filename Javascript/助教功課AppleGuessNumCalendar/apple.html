@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <title>Document</title>
+  <style>
+    .hoverbox:hover {
+      outline: 3px solid rgb(247, 216, 149);
+    }
+
+    .total {
+      font-weight: 900;
+      font-size: 53px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button class="title m-1 btn bg-dark text-white">IPhone</button>
+        <button class="title m-1 btn bg-dark text-white">IPad</button>
+        <button class="title m-1 btn bg-dark text-white">MacPro</button>
+      </div>
+    </div>
+    <div class="row dom"></div>
+  </div>
+
+  <script>
+    let all = [
+      [
+        { type: 'iphone', rgb: 'rgb(255, 0, 0)', color: "紅色", pic: './iphone-red.png', storage: "64GB", price: 24900 },
+        { type: 'iphone', rgb: 'rgb(255, 0, 0)', color: "紅色", pic: './iphone-red.png', storage: "128GB", price: 26900 },
+        { type: 'iphone', rgb: 'rgb(255, 0, 0)', color: "紅色", pic: './iphone-red.png', storage: "256GB", price: 30400 },
+        { type: 'iphone', rgb: 'rgb(255, 255, 0)', color: "黃色", pic: './iphone-yellow.png', storage: "64GB", price: 24900 },
+        { type: 'iphone', rgb: 'rgb(0, 0, 0)', color: "黑色", pic: './iphone-black.png', storage: "64GB", price: 24900 },
+        { type: 'iphone', rgb: 'rgb(255, 255, 0)', color: "黃色", pic: './iphone-yellow.png', storage: "128GB", price: 26900 },
+        { type: 'iphone', rgb: 'rgb(0, 0, 0)', color: "黑色", pic: './iphone-black.png.png', storage: "128GB", price: 26900 },
+        { type: 'iphone', rgb: 'rgb(255, 255, 0)', color: "黃色", pic: './iphone-yellow.png', storage: "256GB", price: 30400 },
+        { type: 'iphone', rgb: 'rgb(0, 0, 0)', color: "黑色", pic: './iphone-black.png.png', storage: "256GB", price: 30400 }
+      ],
+
+      [
+        { type: 'ipad', rgb: 'rgb(110, 105, 105)', color: "太空灰色", pic: './ipad-space.png', storage: "32GB", price: 10900 },
+        { type: 'ipad', rgb: 'rgb(110, 105, 105)', color: "太空灰色", pic: './ipad-space.png', storage: "128GB", price: 13900 },
+        { type: 'ipad', rgb: 'rgb(185, 174, 174)', color: "銀色", pic: './ipad-silver.png', storage: "32GB", price: 10900 },
+        { type: 'ipad', rgb: 'rgb(185, 174, 174)', color: "銀色", pic: './ipad-silver.png', storage: "128GB", price: 13900 }
+      ],
+
+      [
+        { type: 'macbook', rgb: 'rgb(110, 105, 105)', color: "太空灰色", pic: './mbp13touch-space.png', storage: "256GB", price: 51300 },
+        { type: 'macbook', rgb: 'rgb(110, 105, 105)', color: "太空灰色", pic: './mbp13touch-space.png', storage: "512GB", price: 57300 },
+        { type: 'macbook', rgb: 'rgb(110, 105, 105)', color: "太空灰色", pic: './mbp13touch-space.png', storage: "1TB", price: 63300 },
+        { type: 'macbook', rgb: 'rgb(110, 105, 105)', color: "太空灰色", pic: './mbp13touch-space.png', storage: "2TB", price: 75300 },
+        { type: 'macbook', rgb: 'rgb(185, 174, 174)', color: "銀色", pic: './mbp13touch-silver.png', storage: "256GB", price: 51300 },
+        { type: 'macbook', rgb: 'rgb(185, 174, 174)', color: "銀色", pic: './mbp13touch-silver.png', storage: "512GB", price: 57300 },
+        { type: 'macbook', rgb: 'rgb(185, 174, 174)', color: "銀色", pic: './mbp13touch-silver.png', storage: "1TB", price: 63300 },
+        { type: 'macbook', rgb: 'rgb(185, 174, 174)', color: "銀色", pic: './mbp13touch-silver.png', storage: "2TB", price: 75300 }
+      ]
+    ]
+
+    let dom = document.querySelector('.dom');
+    let btn = document.querySelectorAll('.title')
+    let picFamily = ['./iphone11-select-2019-family.png', './ipad-hero-unselected-201909_GEO_TW.png', './mbp13touch-space-gallery1-201907.png']
+    btn.forEach((item, index) => {
+      item.addEventListener('click', () => {
+        dom.innerHTML = "";
+        let phone = all[index];
+        let picbox = document.createElement('div');
+        picbox.classList.add("col-12", "col-md-6", "px-3", "d-flex", "justify-content-center", "align-items-center");
+        let img = document.createElement('img');
+        img.classList.add("w-75", "h-75");
+        img.src = picFamily[index];
+        picbox.append(img);
+        dom.append(picbox);
+
+        let largeBox = document.createElement('div');
+        largeBox.classList.add("col-12", "col-md-6");
+
+        let colorBox = document.createElement('div'); //item1 顏色有三種 紅黃黑
+        colorBox.classList.add('item');
+        let colorH2 = document.createElement('h2');
+        colorH2.classList.add("fw-bolder");
+        colorH2.innerText = "顏色"
+        colorBox.append(colorH2);
+        let colorData = document.createElement("div");
+        colorData.classList.add("color-box", "row");
+        let countArr = []
+        phone.filter(function (thisPhone, index) {
+          countArr.push(thisPhone.color)
+        })
+        let set1 = new Set(countArr)
+        let colorArr = [];
+        phone.filter(function (thisPhone, index) {
+          colorArr.push(thisPhone.rgb)
+        })
+        let set21 = new Set(colorArr);
+        let set2 = [];
+        set21.forEach(x => {
+          set2.push(x);
+        })
+        let set = [];
+        set1.forEach(x => {
+          set.push(x);
+        })
+        set.forEach((color, index) => {
+          let outside = document.createElement('div');
+          outside.classList.add("box", "col-6", "col-md-4");
+          let content = document.createElement("div");
+          content.classList.add("content", "hoverbox", "p-3", "pt-4", "border", "border-dark", "rounded");
+          let circle = document.createElement("div");
+          circle.classList.add("color", "mx-auto", "rounded-circle", "border", "border-dark", "p-5");
+          circle.style.backgroundColor = set2[index];
+          content.append(circle);
+          let p = document.createElement('p');
+          p.innerText = color;
+          p.classList.add("pt-2", "text-center", "fs-2");
+          content.append(p);
+          outside.append(content);
+          colorData.append(outside);
+        })
+        colorBox.append(colorData);
+
+        let typebox = document.createElement("div"); //item2 規格
+        //set up html item wrap for  規格title
+        typebox.classList.add("item");
+        let colorH3 = document.createElement("h2");
+        colorH3.innerText = "規格";
+        colorH3.classList.add("fw-bolder");
+        typebox.append(colorH3);
+        //establish price-box div and push in storage into typArr
+        let priceData = document.createElement('div');
+        priceData.classList.add("price-box", "row");
+        let typeArr = [];
+        phone.filter(function (thisPhone, index) {
+          typeArr.push(thisPhone.storage)
+        })
+        let set31 = new Set(typeArr);
+        let set3 = [];
+        set31.forEach(x => {
+          set3.push(x);
+        })
+        //push price info into priceArr
+        let priceArr = [];
+        phone.filter(function (thisPhone, index) {
+          priceArr.push(thisPhone.price)
+        })
+        //use Set method to combine repeated Array index
+        let set4 = new Set(priceArr)
+        set3.forEach((x, index) => {
+          let outside = document.createElement("div");
+          outside.classList.add("box", "col-6", "col-md-4");
+          let content = document.createElement("div");
+          content.classList.add("content", "hoverbox", "p-3", "pt-4", "border", "border-dark", "rounded", "text-center", "price-box-item");
+          let p1 = document.createElement("p");
+          p1.classList.add("size", "fw-bolder");
+          p1.innerText = x;
+          let p2 = document.createElement("p");
+          p2.classList.add("price");
+          p2.innerText = "NT$" + phone[index]['price'];
+          content.append(p1);
+          content.append(p2);
+          outside.append(content);
+          priceData.append(outside);
+        })
+
+        //item3 價格
+        let item = document.createElement("div");
+        let h4 = document.createElement("h2");
+        h4.classList.add("fw-bolder");
+        h4.innerText = "價格試算";
+        let total = document.createElement("div");
+        total.classList.add("total");
+        item.append(h4);
+        item.append(total);
+        typebox.append(priceData);
+        largeBox.append(colorBox);
+        largeBox.append(typebox);
+        largeBox.append(item);
+        dom.append(largeBox);
+
+        //按鈕更換顏色
+        let colorChooseArr = document.querySelectorAll('.color-box .box');
+        colorChooseArr.forEach((item, index) => {
+          item.addEventListener('click', () => {
+            let colorSwritch = phone.find(x => x['color'] === item.querySelector('.text-center').innerText)['pic'];
+            img.src = colorSwritch;
+          })
+        })
+        //按鈕秀價格
+        let totalPrice = document.querySelector('.total');
+        let choosePrice = document.querySelectorAll(".price-box-item");
+        choosePrice.forEach(item => {
+          item.addEventListener('click', () => {
+            totalPrice.innerText = item.querySelector(".price").innerText;
+          })
+        })
+      })
+    })
+
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
