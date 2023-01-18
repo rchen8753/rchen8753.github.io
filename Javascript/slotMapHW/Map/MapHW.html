@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Bootstrap demo</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+      <!-- map -->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+            integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+            crossorigin="" />
+      <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+            integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+            crossorigin=""></script>
+      <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+      <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+
+      <!-- fontawesome -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+      <style>
+            .container>.row {
+                  height: 100vh;
+            }
+
+            #map {
+                  height: 100%;
+            }
+      </style>
+</head>
+
+<body>
+
+      <div class="container">
+            <div class="row py-5">
+                  <div class="col-6">
+                        <div id="map"></div>
+                  </div>
+                  <div class="col-6"></div>
+            </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
+      <script>
+            //宣告
+            let areaData
+            let eatData
+            let eatAreaData
+            let markers = L.markerClusterGroup();//叢集
+
+            //DOM
+            //3. fetch
+            let map;
+            const areaDataRequest = fetch('https://raw.githubusercontent.com/ChouJustice/ChouJustice.github.io/main/Map/%E5%8F%B0%E7%81%A3%E8%A1%8C%E6%94%BF%E5%9C%B0%E5%8D%80.json')
+            const eatDataRequest = fetch('https://raw.githubusercontent.com/rchen8753/FilesStorage/main/%E9%A4%90%E9%A3%B2%20-%20%E8%A7%80%E5%85%89%E8%B3%87%E8%A8%8A%E8%B3%87%E6%96%99%E5%BA%AB')
+            //4. declare fetched data and combine
+            
+
+
+            //function
+            //1. Map set up
+            function initMap() {
+                  map = L.map('map', {
+                        center: [25.03416068163684, 121.56454962636319],
+                        zoom: 9
+                  })
+
+                  //2. set up map picture layer
+                  let osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                  let osm = new L.TileLayer(osmUrl, { minZoom: 5, maxZoom: 19 })
+                  map.addLayer(osm);
+            }
+            //5. Set map Item for your data
+            function setMapItem() {
+                  //抓資料
+                  Promise.all([areaDataRequest, eatDataRequest])
+                        .then(res => Promise.all(res.map(x => x.json())))
+                        .then(jsonData => {
+                              [areaData, eatData] = jsonData
+                              // //餐廳資料處裡,只要新北市
+                              eatData = eatData.Infos.Info
+                              //6. Combine areadData and artData into artAreaData
+                              eatAreaData = eatData.map(x => {
+                                    let area = areaData.find(y => y.City == x.Region && y.District == x.Town)
+                                    return {
+                                          ...x,
+                                          regionTown: `${x.Region}${x.Town}`,
+                                          lat: eatData != undefined ? eatData.Py : undefined,
+                                          lng: eatData != undefined ? eatData.Px : undefined
+                                    }
+                              }).filter(x => x.Px != undefined).groupBy(`regionTown`)
+                              
+                              console.log(eatAreaData)
+                              
+                              
+                              renderMarker()
+                        })
+            }
+
+
+            function renderMarker(){
+                  if (markers) markers.clearLayers();
+                  Object.keys(eatAreaData).forEach(key=>{
+                        let data = eatAreaData[key]
+                        let marker = L.marker([data[0].Py,data[0].Px]);
+
+
+                  marker.bindPopup(
+                        `
+                        <h3>${data[0].Region}${data[0].Town}
+                        <h4>${data[0].Name}</h4>
+                        <br>
+                        <p>${data[0].Description}</p>
+                        `
+                  )
+
+                   markers.addLayer(marker);
+                   
+                  })
+            map.addLayer(markers)
+            }
+
+            
+            //window onload
+            window.onload = function () {
+                  initMap()
+                  setMapItem()
+            }
+            Array.prototype.groupBy = function (prop) {
+                  return this.reduce(function (groups, item) {
+                        const val = item[prop]
+                        groups[val] = groups[val] || []
+                        groups[val].push(item)
+                        return groups
+                  }, {})
+            }
+      </script>
+</body>
+
+</html>
