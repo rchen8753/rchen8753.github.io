@@ -29,6 +29,9 @@
             #map {
                   height: 100%;
             }
+            img{
+                  height: 100%;
+            }
       </style>
 </head>
 
@@ -39,7 +42,18 @@
                   <div class="col-6">
                         <div id="map"></div>
                   </div>
-                  <div class="col-6"></div>
+                  <div class="col-6">
+                        <label for="county">縣市</label>
+                        <select id="county" class="form-control">
+                              <!-- option -->
+                        </select>
+                        <div class="content">
+                              <!-- <br>
+                              <h2>RegionTown</h2>
+                              <br>
+                              <p>description</p> -->
+                        </div>
+                  </div>
             </div>
       </div>
 
@@ -58,8 +72,10 @@
             let map;
             const areaDataRequest = fetch('https://raw.githubusercontent.com/ChouJustice/ChouJustice.github.io/main/Map/%E5%8F%B0%E7%81%A3%E8%A1%8C%E6%94%BF%E5%9C%B0%E5%8D%80.json')
             const eatDataRequest = fetch('https://raw.githubusercontent.com/rchen8753/FilesStorage/main/%E9%A4%90%E9%A3%B2%20-%20%E8%A7%80%E5%85%89%E8%B3%87%E8%A8%8A%E8%B3%87%E6%96%99%E5%BA%AB')
+            const countySelect = document.querySelector('#county');
+            const content = document.querySelector('.content')
             //4. declare fetched data and combine
-            
+
 
 
             //function
@@ -94,38 +110,78 @@
                                           lng: eatData != undefined ? eatData.Px : undefined
                                     }
                               }).filter(x => x.Px != undefined).groupBy(`regionTown`)
-                              
+
                               console.log(eatAreaData)
-                              
-                              
+
+
                               renderMarker()
+                              initCountySelect()
                         })
             }
 
 
-            function renderMarker(){
+            function renderMarker() {
                   if (markers) markers.clearLayers();
-                  Object.keys(eatAreaData).forEach(key=>{
+                  Object.keys(eatAreaData).forEach(key => {
                         let data = eatAreaData[key]
-                        let marker = L.marker([data[0].Py,data[0].Px]);
+                        let marker = L.marker([data[0].Py, data[0].Px]);
 
 
-                  marker.bindPopup(
-                        `
+                        marker.bindPopup(
+                              `
                         <h3>${data[0].Region}${data[0].Town}
                         <h4>${data[0].Name}</h4>
                         <br>
-                        <p>${data[0].Description}</p>
+                        <p overflow-y: scroll>${data[0].Description}</p>
                         `
-                  )
+                        )
 
-                   markers.addLayer(marker);
-                   
+                        marker.addEventListener('click', () => {
+                              content.innerHTML ='';
+                              let contentTitle= document.createElement('h2')
+                              contentTitle.innerHTML = `<br>` + `<strong>${data[0].regionTown}</strong>`
+
+                              let eatTitle = document.createElement('h3');
+                              eatTitle.innerHTML = `<br>${data[0].Name}`
+                              console.log(eatTitle)
+
+                              let eatPic = document.createElement('div');
+                              eatPic.classList.add('picture')
+                              eatPic.innerHTML =`<img src="${data[0].Picture1}" alt="">`+ `<img src="${data[0].Picture2}" alt="">`
+                              console.log(eatPic)
+
+                              let contentText = document.createElement('p')
+                              contentText.innerHTML = `<br>` + `${data[0].Description}`
+                              
+                              let eatInfo = document.createElement('div')
+                              eatInfo.setAttribute('class', "eatInfo")
+                              eatInfo.innerHTML = `<small><strong>地址:${data[0].Add}</strong></small>`+ `<br>`+`<small><strong>電話:${data[0].Tel}</strong></small>` +`<br>`+ `<small><strong>營業時間:${data[0].Opentime}</strong></small>`
+                              console.log(eatInfo)
+                              content.append(contentTitle,eatTitle,contentText,eatPic,eatInfo);
+                        })
+
+                        markers.addLayer(marker);
+
                   })
-            map.addLayer(markers)
+                  map.addLayer(markers)
             }
 
-            
+            function initCountySelect() {
+                  ['請選擇', ... new Set(areaData.map(x => x.City))].forEach(city => {
+                        let option = document.createElement("option");
+                        option.innerText = city;
+                        option.value = city == "請選擇" ? '' : city
+                        countySelect.appendChild(option);
+                  })
+
+                  countySelect.onchange = function () {
+                        if (this.value != '') {
+                              let county = areaData.find(x => x.City == this.value)
+                              map.setView([county.Lat, county.Lng], 11)
+                        }
+                  }
+            }
+
             //window onload
             window.onload = function () {
                   initMap()
